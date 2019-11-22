@@ -5,6 +5,8 @@ import GridDropdown from './GridDropdown';
 import { useLazyQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
+import { useAuth0 } from "../../react-auth0-spa";
+
 const GET_USER = gql`
 	query dropdownMenu {
 		me {
@@ -16,12 +18,13 @@ const GET_USER = gql`
 const NavBar = ({ loggedin, setLoggedin, history }) => {
 	const [getUser, { client, error, data }] = useLazyQuery(GET_USER);
 	const [errorCount, setErrorCount] = useState(0);
+	const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-	const logout = () => {
-		localStorage.clear();
-		setLoggedin(false);
-		history.push('/');
-	};
+	// const logout = () => {
+	// 	localStorage.clear();
+	// 	setLoggedin(false);
+	// 	history.push('/');
+	// };
 
 	// On render, pull stored token. If you have a token, log yourself in.
 	useEffect(() => {
@@ -63,11 +66,14 @@ const NavBar = ({ loggedin, setLoggedin, history }) => {
 				{/* If you're not logged in, show sign in and sign up buttons */}
 				{!loggedin && (
 					<>
-						<NavLink to='signin'> Sign In </NavLink>
-						<NavLink to='signup' className='signup-link'>
+						{/* <NavLink to='signin'> */}
+						<button onClick={() => loginWithRedirect({})}> Sign In</button>
+						 {/* </NavLink> */}
+						 {isAuthenticated && <button onClick={()=> logout()}>Log out</button>}
+						{/* <NavLink to='signup' className='signup-link'>
 							{' '}
 							Sign Up{' '}
-						</NavLink>
+						</NavLink> */}
 					</>
 				)}
 

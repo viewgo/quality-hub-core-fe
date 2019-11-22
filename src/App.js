@@ -10,8 +10,17 @@ import PrivateRoute from './components/PrivateRoute';
 import Footer from './components/Footer/';
 import './global/index.scss';
 
+import { useAuth0 } from "./react-auth0-spa";
+
 function App() {
 	const [loggedin, setLoggedin] = useState(false);
+	const { loading } = useAuth0();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+
 
 	return (
 		<div className='App'>
