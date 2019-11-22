@@ -16,9 +16,9 @@ function App() {
 	const [loggedin, setLoggedin] = useState(false);
 	const { loading } = useAuth0();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+//   if (loading) {
+//     return <div>Loading...</div>;
+//   }
 
 
 

@@ -163,7 +163,7 @@ const SignUpForm = props => {
 	};
 
 	//Set form step
-	const [progress, setProgress] = useState(-1);
+	const [progress, setProgress] = useState(0);
 
 	const handleNext = e => {
 		e.preventDefault();
@@ -186,7 +186,7 @@ const SignUpForm = props => {
 					setPasswordTouched={setPasswordTouched}
 				/>
 			)}
-			{progress === -1 && valError
+			{/* {progress === -1 && valError //initial page for email/password
 				? valError.map(message => {
 						if (message.includes('email') && !emailTouched) {
 							return null;
@@ -216,7 +216,7 @@ const SignUpForm = props => {
 							</p>
 						);
 				  })
-				: null}
+				: null} */}
 
 			{progress === 0 && <GetStarted setProgress={setProgress} />}
 

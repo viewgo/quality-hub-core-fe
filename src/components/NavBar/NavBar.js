@@ -68,8 +68,11 @@ const NavBar = ({ loggedin, setLoggedin, history }) => {
 					<>
 						{/* <NavLink to='signin'> */}
 						<button onClick={() => loginWithRedirect({})}> Sign In</button>
+
 						 {/* </NavLink> */}
+							
 						 {isAuthenticated && <button onClick={()=> logout()}>Log out</button>}
+
 						{/* <NavLink to='signup' className='signup-link'>
 							{' '}
 							Sign Up{' '}

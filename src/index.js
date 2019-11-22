@@ -16,7 +16,7 @@ require('dotenv').config();
 
 
 
-
+//Token Authorization
 const getToken = () => {
   let token = localStorage.getItem('token');
   return token ? `Bearer ${token}` : '';
@@ -34,10 +34,11 @@ const client = new ApolloClient({
 });
 
 
-
+// Auth0
 // A function that routes the user to the right place
 // after login
 const onRedirectCallback = appState => {
+  console.log(appState);
   history.push(
     appState && appState.targetUrl
       ? appState.targetUrl
@@ -46,7 +47,7 @@ const onRedirectCallback = appState => {
 };
 
 
-//auth0 is wrapped around the entire app
+// auth0 is wrapped around the entire app
 // apollo Client is wrapped in the app and acts as an Contect API the retrieve data
 ReactDOM.render(
   <Auth0Provider
