@@ -43,9 +43,11 @@ const SignInForm = props => {
 		setLoading(true);
 		let { email, password } = user;
 		login({ variables: { email, password } })
+		//Promise
 			.then(res => {
 				setLoading(false);
 				let token = res.data.login.token;
+				//Saving token to local storage
 				localStorage.setItem('token', token);
 				localStorage.setItem('id', res.data.login.user.id);
 				props.history.push('/dashboard');
