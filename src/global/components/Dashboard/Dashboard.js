@@ -1,7 +1,7 @@
 // Libraries
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { gql } from 'apollo-boost';
-import { useLazyQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { Link } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
 
@@ -41,38 +41,10 @@ const GET_USER = gql`
 
 //COMponent - <Ryan's accent>
 const Dashboard = ({ setLoggedin }) => {
-	const userID = {
-		id: null,
-	};
-
-	const [getUser, { data: userData }] = useLazyQuery(GET_USER);
-	const [editUser, setEditUser] = useState(userData);
-
-	useEffect(() => {
-		const token = localStorage.getItem('token');
-		if (token) {
-			userID.id = localStorage.getItem('id');
-			getUser();
-		}
-	}, []);
-
-	useEffect(() => {
-		setEditUser(userData);
-	}, [userData]);
-
-	//myArray is used to hold the values from the returned userData.
-	//We loop over the keys in the userData object and push them to myArray.
-	let myArray = [];
+	useQuery(GET_USER);
 
 	return (
 		<div className='entire-dashboard'>
-			{/* Looping over the userData and pushing to myArray
-      This way we can map over the array and render input components later */}
-			{userData &&
-				editUser &&
-				Object.keys(userData.me).forEach(field => {
-					myArray.push(field);
-				})}
 			<div className='lower-dashboard'>
 				<LeftNavBar setLoggedin={setLoggedin} />
 				<div className='dashboard-routes'>
@@ -82,39 +54,21 @@ const Dashboard = ({ setLoggedin }) => {
 						<Link to='/dashboard/paymentinfo'>Payment Info</Link>
 					</div>
 					<Switch>
-						<Route
-							exact
-							path='/dashboard'
-							render={props => (
-								<BasicInfo {...props} myArray={myArray} userData={userData} />
-							)}
-						/>
-						<Route
-							exact
-							path='/dashboard/experience'
-							render={props => (
-								<Experience {...props} myArray={myArray} userData={userData} />
-							)}
-						/>
-						<Route
-							exact
-							path='/dashboard/paymentinfo'
-							render={props => (
-								<PaymentInfo {...props} myArray={myArray} userData={userData} />
-							)}
-						/>
-						<Route
-							exact
-							path='/dashboard/schedule'
-							render={props => (
-								<Schedule {...props} myArray={myArray} userData={userData} />
-							)}
-							/>
-							<Route
-							exact
-							path='/dashboard/interviewq'
-							render={props => <DashInterviewQ {...props} />}
-						/>
+						<Route exact path='/dashboard'>
+							<BasicInfo />
+						</Route>
+						<Route exact path='/dashboard/experience'>
+							<Experience />
+						</Route>
+						<Route exact path='/dashboard/paymentinfo'>
+							<PaymentInfo />
+						</Route>
+						<Route exact path='/dashboard/schedule'>
+							<Schedule />
+						</Route>
+						<Route exact path='/dashboard/interviewq'>
+							<DashInterviewQ />
+						</Route>
 					</Switch>
 				</div>
 			</div>

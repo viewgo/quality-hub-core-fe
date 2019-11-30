@@ -1,35 +1,37 @@
 // Libraries
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
 
 // Components
 import DashboardInput from '../DashboardInput';
 
-const Experience = ({ myArray, userData }) => {
-	const experience = [
-		'personal_url',
-		'blog_url',
-		'linkedin_url',
-		'github_url',
-		'twitter_url',
-		'portfolio_url',
-	];
+// Query
+const GET_EXPERIENCE = gql`
+	query {
+		me {
+			linkedin_url
+			github_url
+			personal_url
+			twitter_url
+			portfolio_url
+			blog_url
+		}
+	}
+`;
+
+const Experience = () => {
+	const { data } = useQuery(GET_EXPERIENCE);
+
+	const keys =
+		data && Object.keys(data.me).filter(item => item !== '__typename');
 
 	return (
 		<div className='editform'>
-			{myArray.length > 0 &&
-				myArray.map(item => {
-					if (experience.includes(item)) {
-						return (
-							<DashboardInput
-								key={item}
-								userKey={item}
-								userValue={userData.me[item]}
-							/>
-						);
-					} else {
-						return null;
-					}
-				})}
+			{keys &&
+				keys.map(item => (
+					<DashboardInput key={item} userKey={item} userValue={data.me[item]} />
+				))}
 		</div>
 	);
 };

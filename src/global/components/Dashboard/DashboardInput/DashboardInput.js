@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 // Styles & Icons
 import './DashboardInput.scss';
-import Icon from '../../../../globalIcons/Icon'
+import Icon from '../../../../globalIcons/Icon';
 import { ICONS } from '../../../../globalIcons/iconConstants';
 
 //GraphQuail Mutation
@@ -24,7 +24,7 @@ const DashboardInput = ({ userKey, userValue }) => {
 	});
 
 	//changeField runs the update mutation
-	const [changeField, changeFieldMutation] = useMutation(EDIT_USER);
+	const [changeField] = useMutation(EDIT_USER);
 
 	const handleChange = e => {
 		setUser({
