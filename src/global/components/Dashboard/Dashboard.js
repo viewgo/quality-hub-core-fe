@@ -49,19 +49,19 @@ const Dashboard = ({ setLoggedin }) => {
 			<div className='lower-dashboard'>
 				<LeftNavBar setLoggedin={setLoggedin} />
 				<div className='dashboard-routes'>
-					<div className='dashboard-top-links'>
+					{/* <div className='dashboard-top-links'>
 						<Link to='/dashboard'>Basic Info</Link>
 						<Link to='/dashboard/experience'>Experience</Link>
 						<Link to='/dashboard/paymentinfo'>Payment Info</Link>
-					</div>
+					</div> */}
 					<Switch>
 						<Route exact path='/dashboard'>
 							<BasicInfo />
-						</Route>
-						<Route exact path='/dashboard/experience'>
+							{/* </Route> */}
+							{/* <Route exact path='/dashboard/experience'> */}
 							<Experience />
-						</Route>
-						<Route exact path='/dashboard/paymentinfo'>
+							{/* </Route> */}
+							{/* <Route exact path='/dashboard/paymentinfo'> */}
 							<PaymentInfo />
 						</Route>
 						<Route exact path='/dashboard/schedule'>

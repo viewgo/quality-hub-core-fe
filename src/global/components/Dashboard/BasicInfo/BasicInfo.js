@@ -32,7 +32,7 @@ const BasicInfo = () => {
 	return (
 		<div className='editform'>
 			<DashboardAvatar />
-			{keys &&
+			{data &&
 				keys.map(item => (
 					<DashboardInput key={item} userKey={item} userValue={data.me[item]} />
 				))}
