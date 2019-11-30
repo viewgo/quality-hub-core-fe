@@ -21,8 +21,10 @@ const GET_EXPERIENCE = gql`
 `;
 
 const Experience = () => {
+	// This queries the cache before querying the back-end
 	const { data } = useQuery(GET_EXPERIENCE);
 
+	// This uses previous logic of creating an array from Object keys, just moves logic into specific component
 	const keys =
 		data && Object.keys(data.me).filter(item => item !== '__typename');
 

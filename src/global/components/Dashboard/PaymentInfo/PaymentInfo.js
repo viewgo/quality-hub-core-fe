@@ -16,8 +16,10 @@ const GET_PAYMENTINFO = gql`
 `;
 
 const PaymentInfo = () => {
+	// This queries the cache before querying the back-end
 	const { data } = useQuery(GET_PAYMENTINFO);
 
+	// This uses previous logic of creating an array from Object keys, just moves logic into specific component
 	const keys =
 		data && Object.keys(data.me).filter(item => item !== '__typename');
 

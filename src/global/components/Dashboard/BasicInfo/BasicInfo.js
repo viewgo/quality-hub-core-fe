@@ -22,8 +22,10 @@ const GET_BASICINFO = gql`
 `;
 
 const BasicInfo = () => {
+	// This queries the cache before querying the back-end
 	const { data } = useQuery(GET_BASICINFO);
 
+	// This uses previous logic of creating an array from Object keys, just moves logic into specific component
 	const keys =
 		data && Object.keys(data.me).filter(item => item !== '__typename');
 

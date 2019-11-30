@@ -41,6 +41,7 @@ const GET_USER = gql`
 
 //COMponent - <Ryan's accent>
 const Dashboard = ({ setLoggedin }) => {
+	// This queries the backend for all the user data
 	useQuery(GET_USER);
 
 	return (
