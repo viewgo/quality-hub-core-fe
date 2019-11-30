@@ -14,7 +14,7 @@ import PaymentInfo from './PaymentInfo';
 import BasicInfo from './BasicInfo';
 import Experience from './Experience';
 import Schedule from './Schedule';
-import DashInterviewQ from './DashInterviewQ';
+// import DashInterviewQ from './DashInterviewQ';
 
 // GraphQuaiL Query
 const GET_USER = gql`
@@ -67,9 +67,9 @@ const Dashboard = ({ setLoggedin }) => {
 						<Route exact path='/dashboard/schedule'>
 							<Schedule />
 						</Route>
-						<Route exact path='/dashboard/interviewq'>
+						{/* <Route exact path='/dashboard/interviewq'>
 							<DashInterviewQ />
-						</Route>
+						</Route> */}
 					</Switch>
 				</div>
 			</div>

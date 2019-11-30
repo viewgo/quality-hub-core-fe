@@ -31,6 +31,7 @@ const BasicInfo = () => {
 
 	return (
 		<div className='editform'>
+			<h2>Basic Info</h2>
 			<DashboardAvatar />
 			{data &&
 				keys.map(item => (

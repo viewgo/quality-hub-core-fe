@@ -7,7 +7,7 @@ import { gql } from 'apollo-boost';
 import DashboardInput from '../DashboardInput';
 
 // Query
-const GET_EXPERIENCE = gql`
+const GET_ACCOUNTS = gql`
 	query {
 		me {
 			linkedin_url
@@ -22,7 +22,7 @@ const GET_EXPERIENCE = gql`
 
 const Experience = () => {
 	// This queries the cache before querying the back-end
-	const { data } = useQuery(GET_EXPERIENCE);
+	const { data } = useQuery(GET_ACCOUNTS);
 
 	// This uses previous logic of creating an array from Object keys, just moves logic into specific component
 	const keys =
@@ -30,6 +30,7 @@ const Experience = () => {
 
 	return (
 		<div className='editform'>
+			<h2>Linked Accounts</h2>
 			{data &&
 				keys.map(item => (
 					<DashboardInput key={item} userKey={item} userValue={data.me[item]} />

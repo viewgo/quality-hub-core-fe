@@ -25,6 +25,7 @@ const PaymentInfo = () => {
 
 	return (
 		<div className='editform'>
+			<h2>Payment Info</h2>
 			{data &&
 				keys.map(item => (
 					<DashboardInput key={item} userKey={item} userValue={data.me[item]} />

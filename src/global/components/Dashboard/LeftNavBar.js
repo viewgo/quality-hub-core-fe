@@ -19,13 +19,13 @@ export default function LeftNavBar({ setLoggedin }) {
 	return (
 		<div className='dashboard-left-bar'>
 			<p onClick={() => profileDropdown()}>
-				<span className='gray-square'></span> Profile
+				<span className='gray-square'></span> Dashboard
 			</p>
 			{profileDropdownToggle && (
 				<div className='profile-dropdown-links'>
-					<Link to='/dashboard'>Basic Info</Link>
+					{/* <Link to='/dashboard'>Basic Info</Link>
 					<Link to='/dashboard/experience'>Experience</Link>
-					<Link to='/dashboard/paymentinfo'>Payment Info</Link>
+					<Link to='/dashboard/paymentinfo'>Payment Info</Link> */}
 					<Link to='#' onClick={toggle}>
 						Delete Account
 					</Link>
@@ -37,17 +37,35 @@ export default function LeftNavBar({ setLoggedin }) {
 				setLoggedin={setLoggedin} // GOAL: Have this be a state variable held in Apollo Client cache
 			/>
 
-			<Link to='/dashboard/schedule'>
-				<p>
-					<span className='gray-square'></span>
-					Schedule
-				</p>
-			</Link>
-		
 			<p>
-				<span className='gray-square'></span>{' '}
-				<Link to='/dashboard/interviewq'>InterviewQ</Link>
+				<Link to='/dashboard'>
+					<span className='gray-square'></span> Personal Info
+				</Link>
 			</p>
+
+			<p>
+				<Link to='/dashboard/coachinfo'>
+					<span className='gray-square'></span> Coach Info
+				</Link>
+			</p>
+
+			<p>
+				<Link to='/dashboard/schedule'>
+					<span className='gray-square'></span> Schedule
+				</Link>
+			</p>
+
+			<p>
+				<Link to='/dashboard/setting'>
+					<span className='gray-square'></span> Setting
+				</Link>
+			</p>
+
+			{/* <p>
+				<Link to='/dashboard/interviewq'>
+					<span className='gray-square'></span> InterviewQ
+				</Link>
+			</p> */}
 		</div>
 	);
 }
