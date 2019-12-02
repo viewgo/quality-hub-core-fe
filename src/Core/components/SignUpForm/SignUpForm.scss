@@ -1,0 +1,194 @@
+@import '../../../globalStyles/variables';
+
+.sign-up {
+	width: 92%;
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+button.sign-up-button:disabled {
+	cursor: not-allowed;
+}
+
+.sign-up-button {
+	width: 100%;
+}
+
+.validation-error-message {
+	color: red !important;
+}
+
+.getstarted {
+	width: 100%;
+	max-width: 44.8rem;
+	height: 15rem;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	.getstarted-txt {
+		font-size: 2.4rem;
+		line-height: 3.2rem;
+	}
+}
+
+.signup-btn {
+	width: 14rem;
+	height: 5.4rem;
+	border-radius: 0.5rem;
+	background-color: $main-blue;
+	color: white;
+	text-align: center;
+	font-size: 2rem;
+	line-height: 2.8rem;
+	font-weight: medium;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $hover-blue;
+	}
+}
+
+.prog-bar {
+	width: 92%;
+	max-width: 83.8rem;
+	height: 3.2rem;
+	margin: 24rem auto 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.prog-circle {
+		width: 3.2rem;
+		height: 3.2rem;
+		border-radius: 50%;
+		border: 1px solid #bfbfbf;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.6rem;
+		color: #bfbfbf;
+		margin: 0 0.3rem;
+		flex-shrink: 0;
+		// NEEDS SF PRO FONT
+	}
+
+	p {
+		font-size: 1.6rem;
+		color: #8c8c8c;
+		margin: 0 0.3rem;
+		// NEEDS SF PRO FONT
+	}
+
+	.prog-line {
+		width: 23rem;
+		border: 0.05rem solid #bfbfbf;
+		margin: 0 0.3rem;
+	}
+}
+
+label {
+	font-size: 1.4rem;
+	// NEED SF PRO FONT
+	line-height: 2.2rem;
+}
+
+input,
+select {
+	height: 4rem;
+	border: 1px solid $input-border;
+	border-radius: 0.4rem;
+}
+
+.signup-nav {
+	width: 35.4rem;
+	margin: 6.4rem auto 2rem;
+	display: flex;
+	justify-content: space-between;
+
+	.signup-back {
+		width: 14rem;
+		height: 5.4rem;
+		border: 1px solid #8c8c8c;
+		border-radius: 0.5rem;
+		color: #8c8c8c;
+		text-align: center;
+		font-size: 2rem;
+		line-height: 2.8rem;
+		font-weight: medium;
+		cursor: pointer;
+
+		// &:hover {
+		// background-color: $hover-blue;
+		// }
+	}
+}
+
+.general-signup {
+	width: 92%;
+	max-width: 44.8rem;
+	margin: 9.6rem auto 0;
+
+	.required {
+		font-size: 1.2rem;
+		// NEED SF PRO FONT
+		line-height: 2rem;
+		text-align: right;
+		margin-bottom: 0.8rem;
+	}
+
+	span {
+		color: #cf1322;
+	}
+
+	.two-inputs {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.two-inputs .input-label {
+		width: 48%;
+	}
+
+	.bio-text {
+		height: 14.7rem;
+		border: 1px solid $input-border;
+		border-radius: 0.6rem;
+	}
+}
+
+.exp-signup {
+	width: 92%;
+	max-width: 44.8rem;
+	margin: 9.6rem auto;
+}
+
+.email-address-taken {
+	color: red;
+}
+
+.completed-signup {
+	width: 37.8rem;
+	height: 15rem;
+	margin: 16.5rem auto 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+
+	p {
+		font-size: 2.2rem;
+		// font-size: 2.4rem;
+		// NEEDS SF PRO FONT
+	}
+}
+
+.gotit-btn {
+	font-size: 1.4rem;
+}
